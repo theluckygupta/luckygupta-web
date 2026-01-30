@@ -13,8 +13,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
 export const contactFormSchema = z.object({
-    name: z.string({ required_error: 'Name is requred.' }).trim().min(2, 'Please enter a valid name.').max(50),
-    email: z.string({ required_error: 'Email is requred.' }).email('Must be a valid email address.'),
+    name: z.string({ required_error: 'Name is required.' }).trim().min(2, 'Please enter a valid name.').max(50),
+    email: z.string({ required_error: 'Email is required.' }).email('Must be a valid email address.'),
     message: z.string().trim().min(20, 'Please enter a message containing at least 20 characters.').max(500)
 });
 
@@ -59,9 +59,9 @@ export function ContactMeForm() {
                         name="name"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Name</FormLabel>
+                                <FormLabel className="dark:text-white">Name</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="John Doe" {...field} />
+                                    <Input placeholder="John Doe" {...field} className="dark:bg-black dark:text-white" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -72,9 +72,9 @@ export function ContactMeForm() {
                         name="email"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Email</FormLabel>
+                                <FormLabel className="dark:text-white">Email</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="email@gmail.com" {...field} />
+                                    <Input placeholder="email@gmail.com" {...field} className="dark:bg-black dark:text-white" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -85,15 +85,19 @@ export function ContactMeForm() {
                         name="message"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Message</FormLabel>
+                                <FormLabel className="dark:text-white">Message</FormLabel>
                                 <FormControl>
-                                    <Textarea rows={7} placeholder="Type your message here." {...field} />
+                                    <Textarea rows={7} placeholder="Type your message here." {...field} className="dark:bg-black dark:text-white" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
-                    <Button type="submit" disabled={form.formState.isSubmitting}>
+                    <Button
+                        type="submit"
+                        disabled={form.formState.isSubmitting}
+                        className="bg-black text-white hover:bg-black/90 px-6 py-3 rounded-lg dark:bg-white dark:text-black dark:hover:bg-black/90 dark:hover:text-white"
+                    >
                         Submit
                     </Button>
                 </form>

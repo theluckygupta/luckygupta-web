@@ -168,3 +168,60 @@ export const TypewriterEffectSmooth = ({
         </div>
     );
 };
+'use client';
+
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
+
+export const TypewriterLoop = ({
+  phrases,
+  className
+}: {
+  phrases: string[];
+  className?: string;
+}) => {
+  const [index, setIndex] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = phrases[index];
+    let timeout: NodeJS.Timeout;
+
+    if (!isDeleting && displayed.length < current.length) {
+      timeout = setTimeout(() => {
+        setDisplayed(current.slice(0, displayed.length + 1));
+      }, 80);
+    } else if (!isDeleting && displayed.length === current.length) {
+      timeout = setTimeout(() => setIsDeleting(true), 2500); // ⏸ hold 2.5s
+    } else if (isDeleting && displayed.length > 0) {
+      timeout = setTimeout(() => {
+        setDisplayed(current.slice(0, displayed.length - 1));
+      }, 40);
+    } else if (isDeleting && displayed.length === 0) {
+      setIsDeleting(false);
+      setIndex((prev) => (prev + 1) % phrases.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayed, isDeleting, index, phrases]);
+
+  return (
+    <div
+      className={cn(
+        'flex items-center text-2xl sm:text-4xl md:text-6xl font-bold',
+        className
+      )}
+    >
+      <span className="dark:text-white text-black">
+        {displayed}
+      </span>
+      <motion.span
+        className="ml-1 inline-block w-[4px] h-8 md:h-12 bg-blue-500"
+        animate={{ opacity: [0, 1] }}
+        transition={{ duration: 0.8, repeat: Infinity }}
+      />
+    </div>
+  );
+};

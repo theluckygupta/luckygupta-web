@@ -1,17 +1,55 @@
 import { ContactMeForm } from '@/components/page-ui/ContactMe';
-import { ExperienceSection } from '@/components/page-ui/ExperienceSection';
+import { AboutMeSection } from '@/components/page-ui/AboutMeSection';  // Only import once
 import { LandingPage } from '@/components/page-ui/LandingPage';
-import { ProjectsSection } from '@/components/page-ui/ProjectsSection';
-import { SkillsSection } from '@/components/page-ui/SkillsSection';
-
+import CompaniesSection from '@/components/page-ui/CompaniesSection';
+import BooksSection from '@/components/page-ui/BooksSection';
+import { QuoteSection } from '@/components/page-ui/QuoteSection';
+import Head from 'next/head'; // SEO-related components
+// Consolidated into a single default export
 export default function Home() {
-    return (
-        <main>
-            <LandingPage />
-            <ExperienceSection />
-            <SkillsSection />
-            <ProjectsSection />
-            <ContactMeForm />
-        </main>
-    );
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Lucky Gupta',
+    birthDate: '1998-12-28',
+    birthPlace: {
+      '@type': 'Place',
+      name: 'Samdari, Rajasthan, India'
+    },
+    occupation: [
+      'Internet Personality',
+      'Podcaster',
+      'Author',
+      'Entrepreneur'
+    ],
+    sameAs: [
+      'https://open.spotify.com/show/7JwcBV32M6rWJFieHHlkfd',
+      'https://podcasts.apple.com/us/podcast/lucky-guptas-podcast/id1590334329',
+      'https://www.google.co.in/search?q=Lucky+Gupta&tbm=bks'
+    ]
+  };
+
+  return (
+    <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaData),
+          }}
+        />
+      </Head>
+
+      <main>
+        <LandingPage />
+        <AboutMeSection />
+        <QuoteSection />
+        <BooksSection />
+        <CompaniesSection />
+        <ContactMeForm />
+        <div className="flex justify-center mt-24">
+      </div>
+      </main>
+    </>
+  );
 }

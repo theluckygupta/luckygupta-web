@@ -1,3 +1,7 @@
+* {
+  cursor: url("/cursor.svg") 12 12, auto;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,71 +14,107 @@ html {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
- 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
- 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
- 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
- 
     --radius: 0.5rem;
   }
- 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
- 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
- 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
- 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
- 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-  }
-}
- 
-@layer base {
-  * {
-    @apply border-border;
-  }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+/* ===== APPLE BOOKS – MAX WEB FIDELITY ===== */
+
+.apple-book {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  background: #fff;
+  padding-left: 3px; /* hard paper edge */
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.08),
+    0 14px 32px rgba(0,0,0,0.22);
+}
+
+/* Hard paper strip */
+.apple-book::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #1a1a1a,
+    #f3f3f3
+  );
+  z-index: 4;
+}
+
+/* Lighting mask */
+.apple-book::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 90% at 0% 0%,
+    rgba(255,255,255,0.38),
+    transparent 48%
+  );
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Background print (paper depth) */
+.apple-book-bg {
+  position: absolute;
+  inset: 0;
+  filter: blur(0.35px) brightness(0.92);
+  z-index: 1;
+}
+
+/* Foreground print (actual cover) */
+.apple-book-fg {
+  position: relative;
+  z-index: 3;
+}
+/* ===== COMPANIES SECTION (MOBILE FIX) ===== */
+
+.companies-grid {
+  display: grid;
+  gap: 1.25rem;
+  justify-content: center;
+  align-items: start;
+
+  /* Mobile first */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0 1rem;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .companies-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .companies-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: 0;
+  }
+}
+
+.company-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.company-card img {
+  width: 64px;
+  height: auto;
+  margin-bottom: 0.5rem;
 }

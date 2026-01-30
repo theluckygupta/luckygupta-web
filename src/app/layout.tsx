@@ -1,9 +1,9 @@
 import '@/lib/globals.css';
-
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Space_Grotesk } from 'next/font/google';
+import { Footer } from '@/components/page-ui/Footer';
 
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from '@/components/ui/theme-provider';
@@ -11,23 +11,23 @@ import { ThemeProvider } from '@/components/ui/theme-provider';
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://safetpojskic.com'),
-    title: 'Safet Pojskic',
-    description: 'Welcome to my personal portfolio!',
-    applicationName: 'Safet Pojskic',
-    keywords: ['Safet Pojskic', 'portfolio', 'personal', 'website', 'developer', 'designer', 'engineer', 'software', 'engineer'],
+    metadataBase: new URL('https://luckygupta.org'),
+    title: "Lucky Gupta | Internet Personality",
+    description: 'Lucky Gupta is an Internet Personality, Digital Marketer, and Author.',
+    applicationName: 'Lucky Gupta',
+    keywords: ['Lucky Gupta', 'theluckygupta', 'luckygupta', 'lucky gupta internet celebrity', 'lucky gupta influencer', 'lucky gupta biography', 'lucky gupta age', 'lucky gupta bio', 'lucky gupta wiki', 'lucky gupta wikipedia, lucky gupta girlfriend, lucky gupta youtube, lucky gupta reels, who is lucky gupta'],
     openGraph: {
-        siteName: 'Safet Pojskic',
-        title: 'Safet Pojskic',
-        description: 'Welcome to my personal portfolio!',
+        siteName: 'Lucky Gupta',
+        title: 'Lucky Gupta',
+        description: 'Lucky Gupta is an Internet Personality, Digital Marketer, and Author.',
         type: 'website',
         images: ['/opengraph-image.png']
     },
     twitter: {
         card: 'summary_large_image',
-        site: '@safetpojskic',
-        title: 'Safet Pojskic',
-        description: 'Welcome to my personal portfolio!',
+        site: '@theluckygupta',
+        title: 'Lucky Gupta',
+        description: 'Lucky Gupta is an Internet Personality, Digital Marketer, and Author.',
         images: ['/opengraph-image.png']
     },
     icons: [
@@ -79,6 +79,7 @@ export default function RootLayout({
                 <SpeedInsights />
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     {children}
+                    <Footer />
                     <Toaster />
                 </ThemeProvider>
             </body>
