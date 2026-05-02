@@ -1,10 +1,11 @@
 import '@/lib/globals.css';
+
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Space_Grotesk } from 'next/font/google';
-import { Footer } from '@/components/page-ui/Footer';
 
+import { Footer } from '@/components/page-ui/Footer';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from '@/components/ui/theme-provider';
 
@@ -12,10 +13,21 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://luckygupta.org'),
-    title: "Lucky Gupta | Internet Personality",
+    title: 'Lucky Gupta | Internet Personality',
     description: 'Lucky Gupta is an Internet Personality, Digital Marketer, and Author.',
     applicationName: 'Lucky Gupta',
-    keywords: ['Lucky Gupta', 'theluckygupta', 'luckygupta', 'lucky gupta internet celebrity', 'lucky gupta influencer', 'lucky gupta biography', 'lucky gupta age', 'lucky gupta bio', 'lucky gupta wiki', 'lucky gupta wikipedia, lucky gupta girlfriend, lucky gupta youtube, lucky gupta reels, who is lucky gupta'],
+    keywords: [
+        'Lucky Gupta',
+        'theluckygupta',
+        'luckygupta',
+        'lucky gupta internet celebrity',
+        'lucky gupta influencer',
+        'lucky gupta biography',
+        'lucky gupta age',
+        'lucky gupta bio',
+        'lucky gupta wiki',
+        'lucky gupta wikipedia, lucky gupta girlfriend, lucky gupta youtube, lucky gupta reels, who is lucky gupta'
+    ],
     openGraph: {
         siteName: 'Lucky Gupta',
         title: 'Lucky Gupta',

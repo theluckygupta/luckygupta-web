@@ -96,7 +96,7 @@ export function ContactMeForm() {
                     <Button
                         type="submit"
                         disabled={form.formState.isSubmitting}
-                        className="bg-black text-white hover:bg-black/90 px-6 py-3 rounded-lg dark:bg-white dark:text-black dark:hover:bg-black/90 dark:hover:text-white"
+                        className="rounded-lg bg-black px-6 py-3 text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-black/90 dark:hover:text-white"
                     >
                         Submit
                     </Button>
