@@ -12,7 +12,7 @@ import { ThemeProvider } from '@/components/ui/theme-provider';
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://luckygupta.org'),
+    metadataBase: new URL('https://luckygupta.in'),
     title: 'Lucky Gupta | Internet Personality',
     description: 'Lucky Gupta is an Internet Personality, Digital Marketer, and Author.',
     applicationName: 'Lucky Gupta',
@@ -94,7 +94,21 @@ export default function RootLayout({
                     <Footer />
                     <Toaster />
                 </ThemeProvider>
-            </body>
+<script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Lucky Gupta',
+            url: 'https://luckygupta.in',
+            sameAs: [
+                'https://instagram.com/theluckygupta',
+                'https://github.com/theluckygupta'
+            ]
+        })
+    }}
+/>            </body>
         </html>
     );
 }
