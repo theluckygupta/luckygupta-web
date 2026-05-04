@@ -3,6 +3,7 @@ import '@/lib/globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Space_Grotesk } from 'next/font/google';
 
 import { Footer } from '@/components/page-ui/Footer';
@@ -26,13 +27,16 @@ export const metadata: Metadata = {
         'lucky gupta age',
         'lucky gupta bio',
         'lucky gupta wiki',
-        'lucky gupta wikipedia, lucky gupta girlfriend, lucky gupta youtube, lucky gupta reels, who is lucky gupta'
+        'lucky gupta wikipedia',
+        'lucky gupta youtube',
+        'who is lucky gupta'
     ],
     openGraph: {
         siteName: 'Lucky Gupta',
         title: 'Lucky Gupta',
         description: 'Lucky Gupta is an Internet Personality, Digital Marketer, and Author.',
         type: 'website',
+        url: 'https://luckygupta.in',
         images: ['/opengraph-image.png']
     },
     twitter: {
@@ -81,44 +85,45 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children
-}: Readonly<{
+}: {
     children: React.ReactNode;
-}>) {
+}) {
     return (
         <html lang="en">
             <body className={spaceGrotesk.className}>
                 <Analytics />
                 <SpeedInsights />
+
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-    
-    <div className="flex min-h-screen flex-col">
+                    <div className="flex min-h-screen flex-col">
+                        {/* Main content */}
+                        <main className="flex-1">{children}</main>
 
-        {/* Main content */}
-        <main className="flex-1">
-            {children}
-        </main>
+                        {/* Footer */}
+                        <Footer />
+                    </div>
 
-        {/* Footer */}
-        <Footer />
+                    <Toaster />
+                </ThemeProvider>
 
-    </div>
-
-    <Toaster />
-</ThemeProvider>
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Person',
-            name: 'Lucky Gupta',
-            url: 'https://luckygupta.in',
-            sameAs: [
-                'https://instagram.com/theluckygupta',
-                'https://github.com/theluckygupta'
-            ]
-        })
-    }}
-/>            </body>
+                {/* ✅ SEO Schema (fixed properly) */}
+                <Script
+                    id="schema"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@type': 'Person',
+                            name: 'Lucky Gupta',
+                            url: 'https://luckygupta.in',
+                            sameAs: [
+                                'https://instagram.com/theluckygupta',
+                                'https://github.com/theluckygupta'
+                            ]
+                        })
+                    }}
+                />
+            </body>
         </html>
     );
 }
