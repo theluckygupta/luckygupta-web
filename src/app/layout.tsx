@@ -90,11 +90,21 @@ export default function RootLayout({
                 <Analytics />
                 <SpeedInsights />
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                    {children}
-                    <Footer />
-                    <Toaster />
-                </ThemeProvider>
-<script
+    
+    <div className="flex min-h-screen flex-col">
+
+        {/* Main content */}
+        <main className="flex-1">
+            {children}
+        </main>
+
+        {/* Footer */}
+        <Footer />
+
+    </div>
+
+    <Toaster />
+</ThemeProvider>
     type="application/ld+json"
     dangerouslySetInnerHTML={{
         __html: JSON.stringify({
