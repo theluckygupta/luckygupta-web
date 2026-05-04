@@ -4,14 +4,14 @@ import Link from 'next/link';
 
 export function Footer() {
     return (
-        <footer className="w-full border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-black">
-            <div className="mx-auto flex h-14 max-w-6xl items-center justify-center px-4 text-sm text-neutral-700 dark:text-neutral-300">
+        <footer className="w-full border-t border-red-500 bg-yellow-200 dark:bg-blue-900 z-50 relative">
+            <div className="mx-auto flex h-16 max-w-6xl items-center justify-center px-4 text-sm text-black dark:text-white">
                 <span>
-                    Made with <span className="text-red-500">❤️</span> By{' '}
+                    Made with ❤️ By{' '}
                     <Link
                         href="https://projects.luckygupta.in"
                         target="_blank"
-                        className="font-semibold text-black hover:underline dark:text-white"
+                        className="font-bold underline"
                     >
                         Lucky Gupta Projects
                     </Link>{' '}
