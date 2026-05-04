@@ -1,14 +1,10 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://luckygupta.in'
-
   return [
     {
-      url: `${baseUrl}/`,
+      url: 'https://luckygupta.in',
       lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 1,
     },
   ]
 }
