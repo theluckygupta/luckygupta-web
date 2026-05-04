@@ -36,15 +36,17 @@ export default function Home() {
                 />
             </Head>
 
-            <main>
-                <LandingPage />
-                <AboutMeSection />
-                <QuoteSection />
-                <BooksSection />
-                <CompaniesSection />
-                <ContactMeForm />
-                <div className="mt-24 flex justify-center"></div>
-            </main>
+            <main className="flex flex-col">
+    <LandingPage />
+    <AboutMeSection />
+    <QuoteSection />
+    <BooksSection />
+    <CompaniesSection />
+    <ContactMeForm />
+
+    {/* Proper spacing before footer */}
+    <div className="h-24" />
+</main>
         </>
     );
 }

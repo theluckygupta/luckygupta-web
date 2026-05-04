@@ -10,7 +10,7 @@ export function LandingPage() {
     return (
         <div
             id="landing-page"
-            className="relative flex min-h-screen w-full flex-col items-center justify-center bg-white bg-dot-black/[0.2] dark:bg-black dark:bg-dot-white/[0.2]"
+            className="relative flex min-h-screen w-full flex-col items-center justify-start pt-32 ..."
         >
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)] dark:bg-black" />
 
