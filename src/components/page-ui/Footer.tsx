@@ -5,7 +5,7 @@ import Link from 'next/link';
 export function Footer() {
     return (
         <footer className="w-full border-t border-red-500 bg-yellow-200 dark:bg-blue-900 z-50 relative">
-            <div className="mx-auto flex h-16 max-w-6xl items-center justify-center px-4 text-sm text-black dark:text-black">
+            <div className="mx-auto flex h-16 max-w-6xl items-center justify-center px-4 text-sm text-black">
                 <span>
                     Made with ❤️ By{' '}
                     <Link
